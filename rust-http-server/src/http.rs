@@ -32,7 +32,7 @@ pub struct Request {
     pub path: String,
     pub version: String,
     pub headers: HashMap<String, String>,
-    pub body: String,
+    pub body: Vec<u8>,
     pub params: HashMap<String, String>,
 }
 
@@ -63,13 +63,13 @@ impl Response {
     pub fn not_found() -> Self {
         Self::new(404, "Not Found")
     }
-    pub fn internal_error() -> Self {
-        Self::new(500, "Internal Server Error")
-    }
-
-    pub fn method_not_allowed() -> Self {
-        Self::new(405, "Method Not Allowed")
-    }
+    // pub fn internal_error() -> Self {
+    //     Self::new(500, "Internal Server Error")
+    // }
+    //
+    // pub fn method_not_allowed() -> Self {
+    //     Self::new(405, "Method Not Allowed")
+    // }
 
     pub fn bad_request() -> Self {
         Self::new(400, "Bad Request")
